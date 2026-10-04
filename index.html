@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#5A0D24" />
+<title>Coming soon — Seth Ericson</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48 96x96" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+<link rel="icon" type="image/png" sizes="144x144" href="/favicon-144.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --base:#5A0D24;
+    --maroon:#8A1538;
+    --text:#FFF5F7;
+    --muted:rgba(255,238,242,.66);
+    --ease:cubic-bezier(.2,.8,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    min-height:100vh;min-height:100dvh;
+    display:grid;place-items:center;text-align:center;
+    padding:2rem 1.25rem;
+    font-family:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(900px 520px at 12% 0%, rgba(138,21,56,.9), transparent 60%),
+      radial-gradient(700px 480px at 100% 100%, rgba(64,9,26,.9), transparent 65%),
+      var(--base);
+  }
+  .mono{
+    width:56px;height:56px;margin:0 auto 1.8rem;border-radius:16px;
+    background:var(--maroon);border:1px solid rgba(255,255,255,.18);
+    display:grid;place-items:center;
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.02em;
+  }
+  h1{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;
+    font-size:clamp(3.2rem,11vw,7rem);line-height:.95;letter-spacing:-.035em;
+  }
+  p{margin-top:1.2rem;font-size:1.15rem;color:var(--muted)}
+
+  .rise{opacity:0;transform:translateY(20px);filter:blur(6px);
+    animation:rise .9s var(--ease) forwards}
+  .rise.d2{animation-delay:.12s}
+  .rise.d3{animation-delay:.24s}
+  @keyframes rise{to{opacity:1;transform:none;filter:none}}
+  @media (prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+  <main>
+    <div class="mono rise" aria-hidden="true">SE</div>
+    <h1 class="rise d2">Coming soon</h1>
+    <p class="rise d3">Check back shortly.</p>
+  </main>
+</body>
+</html>
