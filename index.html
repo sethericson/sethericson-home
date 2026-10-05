@@ -1,66 +1,540 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="color-scheme" content="dark" />
-<meta name="theme-color" content="#5A0D24" />
-<title>Coming soon — Seth Ericson</title>
-<link rel="icon" href="https://sethericson.com/favicon.ico" sizes="48x48 96x96" />
-<link rel="icon" type="image/png" sizes="48x48" href="https://sethericson.com/favicon-48.png" />
-<link rel="icon" type="image/png" sizes="96x96" href="https://sethericson.com/favicon-96.png" />
-<link rel="icon" type="image/png" sizes="144x144" href="https://sethericson.com/favicon-144.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="https://sethericson.com/favicon-192.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://sethericson.com/apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --base:#5A0D24;
-    --maroon:#8A1538;
-    --text:#FFF5F7;
-    --muted:rgba(255,238,242,.66);
-    --ease:cubic-bezier(.2,.8,.2,1);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    min-height:100vh;min-height:100dvh;
-    display:grid;place-items:center;text-align:center;
-    padding:2rem 1.25rem;
-    font-family:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
-    color:var(--text);
-    background:
-      radial-gradient(900px 520px at 12% 0%, rgba(138,21,56,.9), transparent 60%),
-      radial-gradient(700px 480px at 100% 100%, rgba(64,9,26,.9), transparent 65%),
-      var(--base);
-  }
-  .mono{
-    width:56px;height:56px;margin:0 auto 1.8rem;border-radius:16px;
-    background:var(--maroon);border:1px solid rgba(255,255,255,.18);
-    display:grid;place-items:center;
-    font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.02em;
-  }
-  h1{
-    font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;
-    font-size:clamp(3.2rem,11vw,7rem);line-height:.95;letter-spacing:-.035em;
-  }
-  p{margin-top:1.2rem;font-size:1.15rem;color:var(--muted)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seth's Arcade - Next-Gen Web Games</title>
+    
+    <!-- Favicon Links -->
+    <link rel="icon" href="https://sethericson.com/favicon.ico" sizes="48x48 96x96" />
+    <link rel="icon" type="image/png" sizes="48x48" href="https://sethericson.com/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="https://sethericson.com/favicon-96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="https://sethericson.com/favicon-144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://sethericson.com/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sethericson.com/apple-touch-icon.png" />
 
-  .rise{opacity:0;transform:translateY(20px);filter:blur(6px);
-    animation:rise .9s var(--ease) forwards}
-  .rise.d2{animation-delay:.12s}
-  .rise.d3{animation-delay:.24s}
-  @keyframes rise{to{opacity:1;transform:none;filter:none}}
-  @media (prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none;filter:none}}
-</style>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            base: '#5A0D24',
+                            maroon: '#8A1538',
+                            dark: '#2e0612',
+                            card: 'rgba(90, 13, 36, 0.4)',
+                            farm: '#10b981',
+                            flappy: '#f59e0b',
+                            poly: '#a855f7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Atkinson Hyperlegible', 'Inter', 'sans-serif'],
+                        heading: ['Bricolage Grotesque', 'Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons & Custom Fonts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Atkinson Hyperlegible', sans-serif;
+            background-color: #3b0817;
+            color: #FFF5F7;
+            overflow-x: hidden;
+            background: 
+                radial-gradient(900px 520px at 12% 0%, rgba(138,21,56,.9), transparent 60%),
+                radial-gradient(700px 480px at 100% 100%, rgba(45,6,18,.95), transparent 65%),
+                #5A0D24;
+            background-attachment: fixed;
+        }
+
+        .heading-font {
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        /* Ambient Background Grid */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 245, 247, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 245, 247, 0.04) 1px, transparent 1px);
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(45, 6, 18, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 245, 247, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-nav {
+            background: rgba(45, 6, 18, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 245, 247, 0.1);
+        }
+
+        /* Dynamic Glow Highlights */
+        .glow-emerald:hover {
+            border-color: rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2), inset 0 0 15px rgba(16, 185, 129, 0.05);
+        }
+
+        .glow-amber:hover {
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.2), inset 0 0 15px rgba(245, 158, 11, 0.05);
+        }
+
+        .glow-purple:hover {
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.05);
+        }
+
+        /* Canvas Background */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
 </head>
-<body>
-  <main>
-    <div class="mono rise" aria-hidden="true">SE</div>
-    <h1 class="rise d2">Coming soon</h1>
-    <p class="rise d3">Check back shortly.</p>
-  </main>
+<body class="min-h-screen flex flex-col relative selection:bg-rose-500 selection:text-white">
+
+    <!-- Interactive Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div class="w-11 h-11 rounded-2xl bg-brand-maroon border border-white/20 p-0.5 flex items-center justify-center shadow-lg shadow-rose-950/40">
+                        <span class="heading-font font-bold text-white text-lg">SE</span>
+                    </div>
+                    <div>
+                        <span class="heading-font text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-rose-100 to-rose-200">
+                            SETH ERICSON
+                        </span>
+                        <span class="block text-[10px] uppercase tracking-widest text-rose-300 font-semibold -mt-1">
+                            Arcade Hub
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Navigation Quick Info / Links -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#featured" class="text-rose-100 hover:text-white transition-colors flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+                        Games
+                    </a>
+                    <a href="#about" class="text-rose-200/80 hover:text-white transition-colors">
+                        About
+                    </a>
+                </div>
+
+                <!-- Status Badge -->
+                <div class="flex items-center gap-3">
+                    <div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        3 Games Online
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-grow relative z-10 pb-20">
+        <section class="relative pt-12 pb-12 md:pt-20 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-grid">
+            <!-- Glow FX -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-rose-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="text-center max-w-3xl mx-auto space-y-6">
+                <!-- Tagline Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-white/10 text-xs sm:text-sm text-rose-200 shadow-xl">
+                    <i data-lucide="zap" class="w-4 h-4 text-amber-400 fill-amber-400/20"></i>
+                    <span>Instant Web Arcade • Play Directly in Browser</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="heading-font text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Level Up Your <br class="hidden sm:inline" />
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-rose-200 via-pink-100 to-rose-300">
+                        Browser Gaming
+                    </span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-base sm:text-lg text-rose-100/80 font-normal max-w-2xl mx-auto leading-relaxed">
+                    Dive into farming simulation, fast-paced reflex arcade, and low-poly 3D racing. Pick your game below and hit the tracks!
+                </p>
+
+                <!-- Search & Filter Controls -->
+                <div class="pt-4 max-w-md mx-auto">
+                    <div class="relative flex items-center">
+                        <i data-lucide="search" class="absolute left-4 w-5 h-5 text-rose-300/60"></i>
+                        <input 
+                            type="text" 
+                            id="game-search"
+                            placeholder="Search games..." 
+                            class="w-full bg-black/40 border border-white/15 rounded-2xl py-3.5 pl-12 pr-4 text-sm text-white placeholder-rose-200/50 focus:outline-none focus:border-rose-400/50 focus:ring-2 focus:ring-rose-400/20 transition-all shadow-inner"
+                        />
+                        <button id="clear-search" class="hidden absolute right-4 text-rose-300 hover:text-white text-xs">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Grid Section -->
+            <div id="featured" class="mt-16 sm:mt-20">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h2 class="heading-font text-2xl font-bold text-white flex items-center gap-2">
+                            Available Games
+                        </h2>
+                        <p class="text-sm text-rose-200/70">Click to launch any title in a new tab</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="filter-all" class="px-3.5 py-1.5 rounded-xl bg-white/15 text-white text-xs font-medium hover:bg-white/20 transition">All</button>
+                        <button id="filter-casual" class="px-3.5 py-1.5 rounded-lg bg-white/5 text-rose-200/70 hover:text-white text-xs font-medium hover:bg-white/10 transition">Casual</button>
+                        <button id="filter-racing" class="px-3.5 py-1.5 rounded-lg bg-white/5 text-rose-200/70 hover:text-white text-xs font-medium hover:bg-white/10 transition">Racing</button>
+                    </div>
+                </div>
+
+                <!-- Games Cards Container -->
+                <div id="games-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- GAME CARD 1: Farm Town Simulator -->
+                    <div class="game-card group glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 glow-emerald flex flex-col justify-between" data-category="casual" data-title="farm town simulator">
+                        <div>
+                            <!-- Visual Banner Container -->
+                            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-emerald-950/80 to-teal-900/40 border border-emerald-500/20 flex items-center justify-center group-hover:border-emerald-500/40 transition-colors">
+                                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-500/10 via-transparent to-transparent"></div>
+                                
+                                <div class="relative z-10 flex flex-col items-center gap-3 transition-transform duration-500 group-hover:scale-110">
+                                    <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shadow-lg shadow-emerald-500/20">
+                                        <i data-lucide="sprout" class="w-9 h-9"></i>
+                                    </div>
+                                    <span class="text-xs tracking-wider uppercase font-semibold text-emerald-300/90">Sim & Management</span>
+                                </div>
+
+                                <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-[11px] font-medium backdrop-blur-md">
+                                    Relaxing
+                                </div>
+                            </div>
+
+                            <!-- Game Content -->
+                            <h3 class="heading-font text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">
+                                Farm Town Simulator
+                            </h3>
+                            <p class="text-rose-100/70 text-sm leading-relaxed mb-6">
+                                Experience charming farming life and build your dream town. Plant crops, manage resources, and grow your peaceful agricultural empire.
+                            </p>
+                        </div>
+
+                        <!-- Action Button -->
+                        <div class="pt-2">
+                            <a 
+                                href="https://fts.sethericson.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold text-sm shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/30 transition-all duration-200 active:scale-95"
+                            >
+                                <span>Play Farm Town</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GAME CARD 2: Flappy Road -->
+                    <div class="game-card group glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 glow-amber flex flex-col justify-between" data-category="casual" data-title="flappy road">
+                        <div>
+                            <!-- Visual Banner Container -->
+                            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-amber-950/80 to-orange-900/40 border border-amber-500/20 flex items-center justify-center group-hover:border-amber-500/40 transition-colors">
+                                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent"></div>
+                                
+                                <div class="relative z-10 flex flex-col items-center gap-3 transition-transform duration-500 group-hover:scale-110">
+                                    <div class="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-400 shadow-lg shadow-amber-500/20">
+                                        <i data-lucide="zap" class="w-9 h-9"></i>
+                                    </div>
+                                    <span class="text-xs tracking-wider uppercase font-semibold text-amber-300/90">Hyper-Casual</span>
+                                </div>
+
+                                <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[11px] font-medium backdrop-blur-md">
+                                    Fast-Paced
+                                </div>
+                            </div>
+
+                            <!-- Game Content -->
+                            <h3 class="heading-font text-2xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
+                                Flappy Road
+                            </h3>
+                            <p class="text-rose-100/70 text-sm leading-relaxed mb-6">
+                                Dodge obstacles and navigate the frantic highway in this hyper-casual reflex game. Test your reaction speed and beat your high scores!
+                            </p>
+                        </div>
+
+                        <!-- Action Button -->
+                        <div class="pt-2">
+                            <a 
+                                href="https://flappyroad.sethericson.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold text-sm shadow-lg shadow-amber-950/50 hover:shadow-amber-500/30 transition-all duration-200 active:scale-95"
+                            >
+                                <span>Play Flappy Road</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GAME CARD 3: PolyLap -->
+                    <div class="game-card group glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 glow-purple flex flex-col justify-between" data-category="racing" data-title="polylap">
+                        <div>
+                            <!-- Visual Banner Container -->
+                            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-purple-950/80 to-indigo-900/40 border border-purple-500/20 flex items-center justify-center group-hover:border-purple-500/40 transition-colors">
+                                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent"></div>
+                                
+                                <div class="relative z-10 flex flex-col items-center gap-3 transition-transform duration-500 group-hover:scale-110">
+                                    <div class="w-16 h-16 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-400 shadow-lg shadow-purple-500/20">
+                                        <i data-lucide="gauge" class="w-9 h-9"></i>
+                                    </div>
+                                    <span class="text-xs tracking-wider uppercase font-semibold text-purple-300/90">3D Racing</span>
+                                </div>
+
+                                <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-[11px] font-medium backdrop-blur-md">
+                                    Low-Poly
+                                </div>
+                            </div>
+
+                            <!-- Game Content -->
+                            <h3 class="heading-font text-2xl font-bold text-white group-hover:text-purple-400 transition-colors mb-2">
+                                PolyLap
+                            </h3>
+                            <p class="text-rose-100/70 text-sm leading-relaxed mb-6">
+                                High-speed low-poly racing challenge! Master tricky tracks, drift through tight turns, and set blistering record lap times.
+                            </p>
+                        </div>
+
+                        <!-- Action Button -->
+                        <div class="pt-2">
+                            <a 
+                                href="https://polylap.sethericson.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-purple-950/50 hover:shadow-purple-500/30 transition-all duration-200 active:scale-95"
+                            >
+                                <span>Play PolyLap</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Empty State -->
+                <div id="no-results" class="hidden text-center py-12 glass-card rounded-3xl mt-6">
+                    <i data-lucide="ghost" class="w-12 h-12 text-rose-300/50 mx-auto mb-3"></i>
+                    <h4 class="text-lg font-semibold text-rose-100">No games found</h4>
+                    <p class="text-sm text-rose-200/60 mt-1">Try searching for a different game name or tag.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Highlights Section -->
+        <section id="about" class="py-16 border-t border-white/10 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    
+                    <div class="p-6 rounded-2xl bg-black/20 border border-white/10 backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-xl bg-rose-500/20 text-rose-300 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="rocket" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="heading-font text-lg font-bold text-white mb-2">Instant Load</h3>
+                        <p class="text-sm text-rose-100/70">All games are optimized for lightweight, smooth browser execution straight in your window.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-black/20 border border-white/10 backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="heading-font text-lg font-bold text-white mb-2">Diverse Gameplay</h3>
+                        <p class="text-sm text-rose-100/70">From relaxing farming simulators to high-velocity 3D racing and fast-paced reflexes.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-black/20 border border-white/10 backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="heading-font text-lg font-bold text-white mb-2">Clean Experience</h3>
+                        <p class="text-sm text-rose-100/70">Enjoy direct gameplay with an aesthetically crafted UI free from clutter.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Removed completely as requested -->
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Background Interactive Particle Canvas Logic
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2 + 0.5;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.alpha = Math.random() * 0.4 + 0.1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 238, 242, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 45; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateCanvas);
+        }
+
+        animateCanvas();
+
+        // Search & Filter Logic
+        const searchInput = document.getElementById('game-search');
+        const clearBtn = document.getElementById('clear-search');
+        const cards = document.querySelectorAll('.game-card');
+        const noResults = document.getElementById('no-results');
+
+        const filterAll = document.getElementById('filter-all');
+        const filterCasual = document.getElementById('filter-casual');
+        const filterRacing = document.getElementById('filter-racing');
+
+        let currentCategory = 'all';
+
+        function filterGames() {
+            const query = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title');
+                const category = card.getAttribute('data-category');
+
+                const matchesQuery = title.includes(query);
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+                if (matchesQuery && matchesCategory) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            if (query.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+        }
+
+        searchInput.addEventListener('input', filterGames);
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            filterGames();
+        });
+
+        function setActiveFilterBtn(selectedBtn) {
+            [filterAll, filterCasual, filterRacing].forEach(btn => {
+                btn.className = "px-3.5 py-1.5 rounded-lg bg-white/5 text-rose-200/70 hover:text-white text-xs font-medium hover:bg-white/10 transition";
+            });
+            selectedBtn.className = "px-3.5 py-1.5 rounded-xl bg-white/15 text-white text-xs font-medium hover:bg-white/20 transition";
+        }
+
+        filterAll.addEventListener('click', () => {
+            currentCategory = 'all';
+            setActiveFilterBtn(filterAll);
+            filterGames();
+        });
+
+        filterCasual.addEventListener('click', () => {
+            currentCategory = 'casual';
+            setActiveFilterBtn(filterCasual);
+            filterGames();
+        });
+
+        filterRacing.addEventListener('click', () => {
+            currentCategory = 'racing';
+            setActiveFilterBtn(filterRacing);
+            filterGames();
+        });
+    </script>
 </body>
 </html>
