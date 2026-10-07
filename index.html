@@ -113,8 +113,69 @@
             z-index: 0;
         }
     </style>
+<style id="takedown-styles">
+  #down-screen{display:none;position:fixed;inset:0;z-index:9999;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+  html.is-down body > *:not(#down-screen){display:none !important}
+  html.is-down #down-screen{display:flex}
+  html.is-down body{overflow:hidden}
+  .down-logo{width:112px;height:112px;border-radius:28px;object-fit:cover;background:rgba(45,6,18,.55);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(255,245,247,.14)}
+  .down-logo-fallback{display:none;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;color:#FFF5F7;letter-spacing:-.02em}
+  .down-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.25rem,7vw,4rem);line-height:1.1;letter-spacing:-.02em;color:#fff;margin:28px 0 0}
+  .down-sub{font-family:'Atkinson Hyperlegible',sans-serif;font-size:clamp(.95rem,2.4vw,1.15rem);color:rgba(255,205,215,.75);margin:12px 0 0}
+  .down-warning{display:none;max-width:80rem;margin:10px auto 0;justify-content:center;text-align:center}
+  html.will-go-down .down-warning{display:flex}
+  .down-warning-pill{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;line-height:1.35;font-weight:500;color:rgba(254,202,202,.95);background:rgba(239,68,68,.12);border:1px solid rgba(248,113,113,.3);padding:6px 16px;border-radius:20px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+  .down-warning-pill strong{font-weight:700;color:#fca5a5}
+  .down-warning-pill svg{flex-shrink:0;width:16px;height:16px;color:#f87171}
+  @media (min-width:640px){.down-warning-pill{font-size:.875rem}}
+</style>
+<script id="takedown-script">
+(function () {
+  // Scheduled takedown: 8:00 AM Eastern, Thursday Oct 8, 2026.
+  // To cancel it, set TAKEDOWN_AT to null and re-upload the page.
+  var TAKEDOWN_AT = '2026-10-08T08:00:00-04:00';
+
+  var root = document.documentElement;
+  var when = TAKEDOWN_AT ? new Date(TAKEDOWN_AT).getTime() : NaN;
+  var forced = /(^|[?&])down(=|&|$)/.test(location.search);   // add ?down to the URL to preview the down screen
+
+  function goDown() {
+    root.classList.remove('will-go-down');
+    root.classList.add('is-down');
+    document.title = 'Taking a break';
+  }
+
+  if (forced || (isFinite(when) && Date.now() >= when)) { goDown(); return; }
+
+  if (isFinite(when)) {
+    root.classList.add('will-go-down');
+    var ms = when - Date.now();
+    if (ms < 2147483647) setTimeout(goDown, ms);   // flips live if the page is already open at 8:00
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var el = document.getElementById('down-when');
+      if (!el) return;
+      try {
+        var tz = { timeZone: 'America/New_York' };
+        var t = new Intl.DateTimeFormat('en-US', Object.assign({ hour: 'numeric', minute: '2-digit' }, tz)).format(when);
+        var d = new Intl.DateTimeFormat('en-US', Object.assign({ weekday: 'long', month: 'short', day: 'numeric' }, tz)).format(when);
+        el.textContent = t + ' ET on ' + d;
+      } catch (e) { /* keep the fallback text */ }
+    });
+  }
+})();
+</script>
 </head>
 <body class="min-h-screen flex flex-col relative selection:bg-rose-500 selection:text-white">
+    <!-- Down screen: shown at the scheduled takedown time, or any time with ?down -->
+    <div id="down-screen" role="status" aria-live="polite">
+        <img class="down-logo" src="https://sethericson.com/apple-touch-icon.png" alt="SE logo" width="112" height="112"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="down-logo down-logo-fallback" aria-hidden="true">SE</div>
+        <h1 class="down-title">We&rsquo;re taking a break</h1>
+        <p class="down-sub">Updates underway</p>
+    </div>
+
 
     <!-- Interactive Particle Canvas Background -->
     <canvas id="particle-canvas" width="1470" height="836"></canvas>
@@ -125,6 +186,12 @@
             <div class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-amber-200/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full backdrop-blur-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="info" aria-hidden="true" class="lucide lucide-info w-4 h-4 text-amber-400 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
                 <span><strong class="font-bold text-amber-300">DISCLAIMER:</strong> These projects were created for educational purposes and have been approved.</span>
+            </div>
+        </div>
+        <div class="down-warning" role="alert">
+            <div class="down-warning-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+                <span><strong>HEADS UP:</strong> This site goes down temporarily at <span id="down-when">8:00 AM ET</span>. Download any games you want to keep access to before then.</span>
             </div>
         </div>
     </header>
@@ -214,7 +281,7 @@
 
                         <div class="pt-2">
                             <a href="https://claude.ai/artifact/XjuLeXEX1QjxqDUAKS4E1U" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold text-xs shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/30 transition-all duration-200 active:scale-95">
-                                <span>Launch Farm Town Simulator</span>
+                                <span>Launch Farm Town</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-3.5 h-3.5"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
                             </a>
                         </div>
