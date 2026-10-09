@@ -123,6 +123,8 @@
   .down-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.25rem,7vw,4rem);line-height:1.1;letter-spacing:-.02em;color:#fff;margin:28px 0 0}
   .down-sub{font-family:'Atkinson Hyperlegible',sans-serif;font-size:clamp(.95rem,2.4vw,1.15rem);color:rgba(255,205,215,.75);margin:12px 0 0}
 
+  .glow-indigo:hover{border-color:rgba(99,102,241,.5);box-shadow:0 0 30px rgba(99,102,241,.2),inset 0 0 15px rgba(99,102,241,.05)}
+  .glow-sky:hover{border-color:rgba(56,189,248,.5);box-shadow:0 0 30px rgba(56,189,248,.2),inset 0 0 15px rgba(56,189,248,.05)}
   .glow-rose:hover{border-color:rgba(244,63,94,.5);box-shadow:0 0 30px rgba(244,63,94,.2),inset 0 0 15px rgba(244,63,94,.05)}
 
   /* Coming Soon cards (not clickable, not part of search/filters) */
@@ -191,7 +193,7 @@
                 <!-- Status Badge -->
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-white/10 text-xs sm:text-sm text-rose-200 shadow-xl">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="font-semibold text-white">5 Projects Live</span>
+                    <span class="font-semibold text-white">7 Projects Live</span>
                     <span class="text-rose-300/40">•</span>
                     <span>Interactive Web Showcase</span>
                 </div>
@@ -392,6 +394,96 @@
                         </div>
                     </div>
 
+
+                    <!-- PROJECT CARD 6: Orbit Hop -->
+                    <div class="game-card group glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 glow-indigo flex flex-col justify-between" data-category="casual" data-title="orbit hop">
+                        <div>
+                            <div class="relative w-full h-44 rounded-2xl overflow-hidden mb-5 border border-indigo-400/20 group-hover:border-indigo-400/40 transition-colors">
+                                <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+                                    <svg viewBox="82 0 236 176" preserveAspectRatio="xMidYMid slice" class="w-full h-full" role="img" aria-label="Orbit Hop: a small ship leaving the orbit of one planet along a dotted path toward the orbit of the next planet" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="oh-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1140"/><stop offset="1" stop-color="#4a1233"/></linearGradient>
+                                            <radialGradient id="oh-p1" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffd089"/><stop offset="1" stop-color="#e2591f"/></radialGradient>
+                                            <radialGradient id="oh-p2" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#9ef0e0"/><stop offset="1" stop-color="#1a8f9a"/></radialGradient>
+                                            <radialGradient id="oh-p3" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#e3c4ff"/><stop offset="1" stop-color="#7a45c9"/></radialGradient>
+                                        </defs>
+                                        <rect width="400" height="176" fill="url(#oh-bg)"/>
+                                        <g fill="#fff" opacity=".75"><circle cx="104" cy="22" r="1.3"/><circle cx="176" cy="150" r="1"/><circle cx="148" cy="30" r="1.1"/><circle cx="236" cy="18" r="1.2"/><circle cx="300" cy="150" r="1.3"/><circle cx="296" cy="30" r="1"/><circle cx="205" cy="160" r="1"/><circle cx="232" cy="104" r=".9"/><circle cx="92" cy="112" r=".9"/></g>
+                                        <circle cx="126" cy="104" r="46" fill="none" stroke="#ffd089" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="3 5"/>
+                                        <circle cx="126" cy="104" r="22" fill="url(#oh-p1)"/>
+                                        <circle cx="268" cy="70" r="36" fill="none" stroke="#9ef0e0" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="3 5"/>
+                                        <circle cx="268" cy="70" r="16" fill="url(#oh-p2)"/>
+                                        <circle cx="212" cy="128" r="8" fill="url(#oh-p3)"/>
+                                        <path d="M158 70 C 190 40, 222 36, 236 52" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
+                                        <circle cx="158" cy="70" r="9" fill="#fff" opacity=".18"/>
+                                        <circle cx="158" cy="70" r="4.5" fill="#fff"/>
+                                    </svg>
+                                </div>
+                                <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                <span class="absolute bottom-3 left-3 px-2.5 py-0.5 rounded-full bg-black/45 border border-white/15 text-[10px] tracking-wider uppercase font-semibold text-indigo-200 backdrop-blur-md">Arcade</span>
+                            </div>
+
+                            <h3 class="heading-font text-xl font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">
+                                Orbit Hop
+                            </h3>
+                            <p class="text-rose-100/70 text-xs leading-relaxed mb-6">
+                                A one-button timing game. Circle a planet, release at the right moment, and catch the next orbit. Planets shrink and drift apart the longer you last, and a daily map means everyone plays the same run.
+                            </p>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="https://claude.ai/artifact/8QUFx4Q1J2SukZ1oQRkuZz" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 shadow-indigo-950/50 hover:shadow-indigo-500/30 text-white font-semibold text-xs shadow-lg transition-all duration-200 active:scale-95">
+                                <span>Launch Orbit Hop</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-3.5 h-3.5"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT CARD 7: Paper Plane -->
+                    <div class="game-card group glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 glow-sky flex flex-col justify-between" data-category="casual" data-title="paper plane">
+                        <div>
+                            <div class="relative w-full h-44 rounded-2xl overflow-hidden mb-5 border border-sky-400/20 group-hover:border-sky-400/40 transition-colors">
+                                <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+                                    <svg viewBox="82 0 236 176" preserveAspectRatio="xMidYMid slice" class="w-full h-full" role="img" aria-label="Paper Plane: a paper plane gliding between canyon walls toward glowing rings" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="pp-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5aa9e6"/><stop offset=".6" stop-color="#ffd7a8"/><stop offset="1" stop-color="#ffb78a"/></linearGradient>
+                                            <linearGradient id="pp-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8643a"/><stop offset="1" stop-color="#7a2c1c"/></linearGradient>
+                                        </defs>
+                                        <rect width="400" height="176" fill="url(#pp-sky)"/>
+                                        <circle cx="246" cy="48" r="18" fill="#fff6d6" opacity=".95"/>
+                                        <path d="M0 176 V96 L34 88 L52 104 L78 92 L104 118 L120 176 Z" fill="#a24a2b" opacity=".75" transform="translate(52 0)"/>
+                                        <path d="M400 176 V90 L362 82 L346 100 L322 90 L296 116 L282 176 Z" fill="#a24a2b" opacity=".75" transform="translate(-52 0)"/>
+                                        <path d="M0 176 V122 L28 112 L48 132 L70 120 L90 176 Z" fill="url(#pp-wall)" transform="translate(58 0)"/>
+                                        <path d="M400 176 V118 L372 110 L352 130 L330 118 L308 176 Z" fill="url(#pp-wall)" transform="translate(-58 0)"/>
+                                        <g fill="none" stroke="#fff3b0" stroke-width="3"><ellipse cx="238" cy="96" rx="11" ry="15" opacity=".9"/><ellipse cx="204" cy="86" rx="7.5" ry="10.5" opacity=".7"/><ellipse cx="178" cy="78" rx="5" ry="7" opacity=".5"/></g>
+                                        <path d="M104 152 C 126 146, 140 144, 160 132" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
+                                        <g transform="translate(160 132) rotate(-18)">
+                                            <path d="M0 0 L46 -10 L14 6 Z" fill="#ffffff"/>
+                                            <path d="M0 0 L46 -10 L20 4 Z" fill="#dfe7f2"/>
+                                            <path d="M14 6 L46 -10 L20 4 Z" fill="#b9c6d8"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                <span class="absolute bottom-3 left-3 px-2.5 py-0.5 rounded-full bg-black/45 border border-white/15 text-[10px] tracking-wider uppercase font-semibold text-sky-200 backdrop-blur-md">Flight</span>
+                            </div>
+
+                            <h3 class="heading-font text-xl font-bold text-white group-hover:text-sky-300 transition-colors mb-2">
+                                Paper Plane
+                            </h3>
+                            <p class="text-rose-100/70 text-xs leading-relaxed mb-6">
+                                A calm, endless glider. Fly a paper plane through canyons, ride thermals to stay aloft, and thread glowing rings to build your score.
+                            </p>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="https://claude.ai/artifact/DD8b3zotfgi2VbKKCaCJv2" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 shadow-sky-950/50 hover:shadow-sky-500/30 text-white font-semibold text-xs shadow-lg transition-all duration-200 active:scale-95">
+                                <span>Launch Paper Plane</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-3.5 h-3.5"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Empty Search Results State -->
@@ -441,96 +533,6 @@
                         </div>
                     </div>
 
-                    <!-- COMING SOON: Orbit Hop -->
-                    <div class="soon-card glass-card rounded-3xl p-6 flex flex-col justify-between">
-                        <div>
-                            <div class="relative w-full h-44 rounded-2xl overflow-hidden mb-5 border border-white/10">
-                                <div class="absolute inset-0">
-                                    <svg viewBox="82 0 236 176" preserveAspectRatio="xMidYMid slice" class="w-full h-full" role="img" aria-label="Orbit Hop: a small ship leaving the orbit of one planet along a dotted path toward the orbit of the next planet" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <linearGradient id="oh-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1140"/><stop offset="1" stop-color="#4a1233"/></linearGradient>
-                                            <radialGradient id="oh-p1" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffd089"/><stop offset="1" stop-color="#e2591f"/></radialGradient>
-                                            <radialGradient id="oh-p2" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#9ef0e0"/><stop offset="1" stop-color="#1a8f9a"/></radialGradient>
-                                            <radialGradient id="oh-p3" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#e3c4ff"/><stop offset="1" stop-color="#7a45c9"/></radialGradient>
-                                        </defs>
-                                        <rect width="400" height="176" fill="url(#oh-bg)"/>
-                                        <g fill="#fff" opacity=".75"><circle cx="104" cy="22" r="1.3"/><circle cx="176" cy="150" r="1"/><circle cx="148" cy="30" r="1.1"/><circle cx="236" cy="18" r="1.2"/><circle cx="300" cy="150" r="1.3"/><circle cx="296" cy="30" r="1"/><circle cx="205" cy="160" r="1"/><circle cx="232" cy="104" r=".9"/><circle cx="92" cy="112" r=".9"/></g>
-                                        <circle cx="126" cy="104" r="46" fill="none" stroke="#ffd089" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="3 5"/>
-                                        <circle cx="126" cy="104" r="22" fill="url(#oh-p1)"/>
-                                        <circle cx="268" cy="70" r="36" fill="none" stroke="#9ef0e0" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="3 5"/>
-                                        <circle cx="268" cy="70" r="16" fill="url(#oh-p2)"/>
-                                        <circle cx="212" cy="128" r="8" fill="url(#oh-p3)"/>
-                                        <path d="M158 70 C 190 40, 222 36, 236 52" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
-                                        <circle cx="158" cy="70" r="9" fill="#fff" opacity=".18"/>
-                                        <circle cx="158" cy="70" r="4.5" fill="#fff"/>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-                                <span class="absolute bottom-3 left-3 px-2.5 py-0.5 rounded-full bg-black/45 border border-white/15 text-[10px] tracking-wider uppercase font-semibold text-sky-200 backdrop-blur-md whitespace-nowrap">Arcade</span>
-                                <span class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/55 border border-amber-300/40 text-[10px] tracking-wider uppercase font-semibold text-amber-200 backdrop-blur-md whitespace-nowrap"><span class="soon-dot"></span>Soon</span>
-                            </div>
-
-                            <h3 class="heading-font text-xl font-bold text-white mb-2">
-                                Orbit Hop
-                            </h3>
-                            <p class="text-rose-100/70 text-xs leading-relaxed mb-6">
-                                A one-button timing game. Circle a planet, release at the right moment, and catch the next orbit. Planets shrink and drift apart the longer you last, and a daily map means everyone plays the same run.
-                            </p>
-                        </div>
-
-                        <div class="pt-2">
-                            <button type="button" class="soon-btn" disabled aria-disabled="true">
-                                <span>Coming Soon</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- COMING SOON: Paper Plane -->
-                    <div class="soon-card glass-card rounded-3xl p-6 flex flex-col justify-between">
-                        <div>
-                            <div class="relative w-full h-44 rounded-2xl overflow-hidden mb-5 border border-white/10">
-                                <div class="absolute inset-0">
-                                    <svg viewBox="82 0 236 176" preserveAspectRatio="xMidYMid slice" class="w-full h-full" role="img" aria-label="Paper Plane: a paper plane gliding between canyon walls toward glowing rings" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <linearGradient id="pp-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5aa9e6"/><stop offset=".6" stop-color="#ffd7a8"/><stop offset="1" stop-color="#ffb78a"/></linearGradient>
-                                            <linearGradient id="pp-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8643a"/><stop offset="1" stop-color="#7a2c1c"/></linearGradient>
-                                        </defs>
-                                        <rect width="400" height="176" fill="url(#pp-sky)"/>
-                                        <circle cx="246" cy="48" r="18" fill="#fff6d6" opacity=".95"/>
-                                        <path d="M0 176 V96 L34 88 L52 104 L78 92 L104 118 L120 176 Z" fill="#a24a2b" opacity=".75" transform="translate(52 0)"/>
-                                        <path d="M400 176 V90 L362 82 L346 100 L322 90 L296 116 L282 176 Z" fill="#a24a2b" opacity=".75" transform="translate(-52 0)"/>
-                                        <path d="M0 176 V122 L28 112 L48 132 L70 120 L90 176 Z" fill="url(#pp-wall)" transform="translate(58 0)"/>
-                                        <path d="M400 176 V118 L372 110 L352 130 L330 118 L308 176 Z" fill="url(#pp-wall)" transform="translate(-58 0)"/>
-                                        <g fill="none" stroke="#fff3b0" stroke-width="3"><ellipse cx="238" cy="96" rx="11" ry="15" opacity=".9"/><ellipse cx="204" cy="86" rx="7.5" ry="10.5" opacity=".7"/><ellipse cx="178" cy="78" rx="5" ry="7" opacity=".5"/></g>
-                                        <path d="M104 152 C 126 146, 140 144, 160 132" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
-                                        <g transform="translate(160 132) rotate(-18)">
-                                            <path d="M0 0 L46 -10 L14 6 Z" fill="#ffffff"/>
-                                            <path d="M0 0 L46 -10 L20 4 Z" fill="#dfe7f2"/>
-                                            <path d="M14 6 L46 -10 L20 4 Z" fill="#b9c6d8"/>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-                                <span class="absolute bottom-3 left-3 px-2.5 py-0.5 rounded-full bg-black/45 border border-white/15 text-[10px] tracking-wider uppercase font-semibold text-sky-200 backdrop-blur-md whitespace-nowrap">Flight</span>
-                                <span class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/55 border border-amber-300/40 text-[10px] tracking-wider uppercase font-semibold text-amber-200 backdrop-blur-md whitespace-nowrap"><span class="soon-dot"></span>Soon</span>
-                            </div>
-
-                            <h3 class="heading-font text-xl font-bold text-white mb-2">
-                                Paper Plane
-                            </h3>
-                            <p class="text-rose-100/70 text-xs leading-relaxed mb-6">
-                                A calm, endless glider. Fly a paper plane through canyons, ride thermals to stay aloft, and thread glowing rings to build your score.
-                            </p>
-                        </div>
-
-                        <div class="pt-2">
-                            <button type="button" class="soon-btn" disabled aria-disabled="true">
-                                <span>Coming Soon</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
