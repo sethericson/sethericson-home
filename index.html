@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>It's the Weekend - Ericson Interactive</title>
-<meta name="description" content="It's the weekend. Go outside.">
-<meta name="robots" content="noindex">
+<title>Apology and Retraction - Ericson Interactive</title>
+<meta name="description" content="Seth Ericson apologizes for threatening to take down the site if he was not elected, and officially retracts that statement.">
 
 <link rel="icon" href="https://sethericson.com/favicon.ico" sizes="48x48 96x96">
 <link rel="icon" type="image/png" sizes="48x48" href="https://sethericson.com/favicon-48.png">
@@ -21,7 +20,7 @@
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; position: relative;
+    margin: 0; min-height: 100vh; display: flex; flex-direction: column; position: relative;
     font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif; color: #FFF5F7; overflow-x: hidden;
     background:
       radial-gradient(900px 520px at 12% 0%, rgba(138,21,56,.9), transparent 60%),
@@ -38,31 +37,56 @@
   }
   #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
 
-  main { position: relative; z-index: 10; flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px 16px; }
-  .card {
-    width: 100%; max-width: 38rem; text-align: center; border-radius: 28px; padding: 44px 22px 40px;
-    background: rgba(45,6,18,.6); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,245,247,.12); box-shadow: 0 20px 50px rgba(0,0,0,.45);
+  .glass-banner {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(30,4,12,.85); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,245,247,.15); box-shadow: 0 20px 25px -5px rgba(0,0,0,.35);
   }
-  @media (min-width: 640px) { .card { padding: 60px 48px 52px; } }
-
-  .logo-wrap {
-    position: relative; width: 132px; height: 132px; margin: 0 auto 28px; border-radius: 32px; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #8a1538, #3a0a18);
-    box-shadow: 0 0 0 1px rgba(255,245,247,.18), 0 18px 44px rgba(0,0,0,.5), 0 0 60px rgba(244,63,94,.25);
-    animation: float 4s ease-in-out infinite;
+  .topbar { max-width: 80rem; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  @media (min-width: 640px) { .topbar { padding: 14px 24px; } }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px; color: rgba(255,226,232,.85); text-decoration: none;
+    font-weight: 700; font-size: .875rem; padding: 6px 12px 6px 8px; border-radius: 9999px; border: 1px solid transparent;
+    transition: background .15s, border-color .15s, color .15s;
   }
-  .logo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .logo-wrap .fallback { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 3rem; letter-spacing: -.02em; color: #fff; }
-  @keyframes float { 50% { transform: translateY(-8px); } }
-  @media (prefers-reduced-motion: reduce) { .logo-wrap { animation: none; } }
+  .back-link:hover, .back-link:focus-visible { background: rgba(255,245,247,.08); border-color: rgba(255,245,247,.15); color: #fff; outline: none; }
+  .back-link svg { width: 16px; height: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: rgba(255,226,232,.75); font-size: .8125rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+  .brand img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; box-shadow: 0 0 0 1px rgba(255,245,247,.14); }
 
+  main { position: relative; z-index: 10; flex: 1; width: 100%; max-width: 46rem; margin: 0 auto; padding: 40px 16px 80px; }
+  @media (min-width: 768px) { main { padding: 64px 24px 96px; } }
+
+  .hero { text-align: center; margin-bottom: 32px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; margin-bottom: 20px;
+    font-size: .8125rem; font-weight: 700; color: rgba(255,226,232,.9);
+    background: rgba(45,6,18,.6); border: 1px solid rgba(255,245,247,.14); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  }
   h1 {
-    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -.02em; line-height: 1.08; margin: 0;
-    font-size: clamp(2.4rem, 9vw, 4rem); color: #fff;
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin: 0;
+    font-size: clamp(2.1rem, 7vw, 3.5rem); color: #fff;
   }
-  h1 span { display: block; background: linear-gradient(90deg, #fecdd3, #ffe4e9, #fda4af); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+  h1 span { background: linear-gradient(90deg, #fecdd3, #ffe4e9, #fda4af); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+  .updated { margin: 14px 0 0; color: rgba(255,205,215,.75); font-size: clamp(.9rem, 2.4vw, 1.05rem); }
+
+  .letter {
+    border-radius: 24px; padding: 28px 22px;
+    background: rgba(45,6,18,.55); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,245,247,.12); box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  }
+  @media (min-width: 640px) { .letter { padding: 44px 48px; } }
+  .letter p { margin: 0 0 1.1em; line-height: 1.75; color: rgba(255,232,237,.9); font-size: 1.0625rem; }
+  .letter strong { color: #fff; }
+  .retract {
+    margin: 1.6em 0; padding: 18px 20px; border-radius: 16px; line-height: 1.65; font-size: 1.0625rem; color: #fff;
+    background: rgba(190,18,60,.18); border: 1px solid rgba(251,113,133,.35);
+  }
+  .retract b { display: block; margin-bottom: 6px; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: #fda4af; }
+  .sig { margin: 2em 0 0 !important; padding-top: 1.2em; border-top: 1px solid rgba(255,245,247,.12); }
+  .sig .name { display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.35rem; color: #fff; }
+  .sig .role { display: block; margin-top: 2px; color: rgba(255,205,215,.75); font-size: .9rem; }
+
   footer { position: relative; z-index: 10; text-align: center; padding: 0 16px 24px; color: rgba(255,205,215,.55); font-size: .8125rem; }
 </style>
 </head>
@@ -70,17 +94,43 @@
   <div class="bg-grid" aria-hidden="true"></div>
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
+  <header class="glass-banner">
+    <div class="topbar">
+      <a class="back-link" href="https://home.sethericson.com/">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        <span>Back to Projects</span>
+      </a>
+      <span class="brand"><img src="https://sethericson.com/apple-touch-icon.png" alt="" width="28" height="28" onerror="this.style.display='none'"><span>Ericson Interactive</span></span>
+    </div>
+  </header>
+
   <main>
-    <section class="card" aria-labelledby="title">
-      <div class="logo-wrap">
-        <span class="fallback" aria-hidden="true">SE</span>
-        <img src="https://sethericson.com/apple-touch-icon.png" alt="Seth Ericson logo" width="132" height="132" onerror="this.style.display='none'">
-      </div>
-      <h1 id="title">It&rsquo;s the weekend.<span>Go outside.</span></h1>
+    <section class="hero">
+      <div class="eyebrow">Official Retraction</div>
+      <h1>Apology <span>and Retraction</span></h1>
+      <p class="updated">October 9, 2026</p>
     </section>
+
+    <article class="letter">
+      <p>I apologize for saying that this site would come down if I was not elected to the Student Leadership Team.</p>
+      <p>It was wrong to tie these projects to the outcome of an election. The projects are something I built for people to enjoy, and they should not be used as leverage to get anyone&rsquo;s vote. Nobody should feel pressured, and I am sorry that it came across that way.</p>
+
+      <div class="retract" role="note">
+        <b>Retraction</b>
+        I officially retract my previous statement that this site is coming down, and that you will lose access to the projects, if I am not elected to the Student Leadership Team.
+      </div>
+
+      <p>Please do not let that statement influence how you vote. Vote for whoever you believe will do the best job.</p>
+      <p>Thank you to everyone who has played, shared, and supported these projects.</p>
+
+      <p class="sig">
+        <span class="name">Seth Ericson</span>
+        <span class="role">Ericson Interactive</span>
+      </p>
+    </article>
   </main>
 
-  <footer>Ericson Interactive</footer>
+  <footer>Ericson Interactive | Apology and Retraction</footer>
 
 <script>
   (function () {
