@@ -73,6 +73,17 @@
   .cond b { display: block; color: #fda4af; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
   .cond strong { color: #fff; }
   .thanks { margin: 24px 0 0; color: rgba(255,205,215,.8); font-size: .95rem; line-height: 1.6; }
+  .btn-vote {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 22rem; margin-top: 26px;
+    padding: 15px 26px; border-radius: 14px; font-weight: 800; font-size: 1rem; color: #fff; text-decoration: none;
+    background: linear-gradient(135deg, #f43f5e, #be123c); border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 10px 30px rgba(190,18,60,.35); transition: transform .15s, box-shadow .15s, filter .15s;
+  }
+  .btn-vote:hover { filter: brightness(1.08); box-shadow: 0 14px 36px rgba(190,18,60,.5); }
+  .btn-vote:active { transform: scale(.97); }
+  .btn-vote:focus-visible { outline: 2px solid #fecdd3; outline-offset: 3px; }
+  .btn-vote svg { width: 18px; height: 18px; }
+  .thanks { margin-top: 14px !important; }
   footer { position: relative; z-index: 10; text-align: center; padding: 0 16px 24px; color: rgba(255,205,215,.55); font-size: .8125rem; }
 </style>
 </head>
@@ -92,7 +103,10 @@
       <div class="cond"><b>If Seth Ericson is elected</b>The site comes back up, and all of the projects are available again.</div>
       <div class="cond"><b>If Seth Ericson is not elected</b>The site stays down. It is only coming back if he wins <strong>one of the 6 SLT slots</strong>.</div>
 
-      <p class="thanks">Thanks for checking in. Every vote for Seth Ericson counts, and you can vote for 6 people.</p>
+      <a class="btn-vote" href="https://docs.google.com/forms/d/e/1FAIpQLSf0EhjZfl5YZEvgSpZgx9CcSH0DS2fFhrhtn6gCO5xCFHoAAA/viewform" target="_blank" rel="noopener noreferrer">Vote for Seth Ericson
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+      </a>
+      <p class="thanks">Thanks for checking in. Every vote counts, and you can vote for 6 people.</p>
     </section>
   </main>
 
