@@ -84,6 +84,18 @@
   .btn-vote:focus-visible { outline: 2px solid #fecdd3; outline-offset: 3px; }
   .btn-vote svg { width: 18px; height: 18px; }
   .thanks { margin-top: 14px !important; }
+  .vote-box { margin-top: 26px; }
+  .closes { margin: 0; color: rgba(255,232,237,.9); font-size: 1rem; line-height: 1.5; }
+  .closes strong { color: #fff; }
+  .count { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px auto 0; max-width: 24rem; }
+  .count .u { border-radius: 14px; padding: 12px 4px 10px; background: rgba(0,0,0,.25); border: 1px solid rgba(255,245,247,.1); }
+  .count .n { display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 7vw, 2.25rem); line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+  .count .l { display: block; margin-top: 6px; font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; color: #fda4af; font-weight: 700; }
+  .closed-msg { display: none; margin: 0; padding: 18px; border-radius: 16px; font-weight: 800; font-size: 1.25rem; color: #fff; background: rgba(0,0,0,.25); border: 1px solid rgba(251,113,133,.35); }
+  .closed-msg small { display: block; margin-top: 6px; font-weight: 400; font-size: .95rem; color: rgba(255,232,237,.85); }
+  .is-closed .open-only { display: none !important; }
+  .is-closed .closed-msg { display: block; }
+  .btn-vote { margin-top: 22px; }
   footer { position: relative; z-index: 10; text-align: center; padding: 0 16px 24px; color: rgba(255,205,215,.55); font-size: .8125rem; }
 </style>
 </head>
@@ -96,22 +108,56 @@
       <img class="logo" src="https://sethericson.com/apple-touch-icon.png" alt="" width="72" height="72" onerror="this.style.display='none'">
       <div><span class="pill"><span class="dot" aria-hidden="true"></span>Site Down</span></div>
       <h1 id="title">This site is <span>down</span></h1>
-      <p class="lead">The Projects Hub and all of its games are offline <strong>until the Student Leadership Team results come in</strong>.</p>
+      <p class="lead">The Projects Hub and all of its projects are offline <strong>until the Student Leadership Team results come in</strong>.</p>
 
       <hr class="rule">
 
       <div class="cond"><b>If Seth Ericson is elected</b>The site comes back up, and all of the projects are available again.</div>
       <div class="cond"><b>If Seth Ericson is not elected</b>The site stays down. It is only coming back if he wins <strong>one of the 6 SLT slots</strong>.</div>
 
-      <a class="btn-vote" href="https://docs.google.com/forms/d/e/1FAIpQLSf0EhjZfl5YZEvgSpZgx9CcSH0DS2fFhrhtn6gCO5xCFHoAAA/viewform" target="_blank" rel="noopener noreferrer">Vote for Seth Ericson
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-      </a>
-      <p class="thanks">Thanks for checking in. Every vote counts, and you can vote for 6 people.</p>
+      <div class="vote-box" id="vote-box">
+        <div class="open-only">
+          <p class="closes">Voting closes <strong>Tuesday, October 13, at 8:30 a.m.</strong></p>
+          <div class="count" id="countdown" role="timer" aria-label="Time until voting closes">
+            <div class="u"><span class="n" id="cd-d">--</span><span class="l">Days</span></div>
+            <div class="u"><span class="n" id="cd-h">--</span><span class="l">Hours</span></div>
+            <div class="u"><span class="n" id="cd-m">--</span><span class="l">Minutes</span></div>
+            <div class="u"><span class="n" id="cd-s">--</span><span class="l">Seconds</span></div>
+          </div>
+          <a class="btn-vote" href="https://docs.google.com/forms/d/e/1FAIpQLSf0EhjZfl5YZEvgSpZgx9CcSH0DS2fFhrhtn6gCO5xCFHoAAA/viewform" target="_blank" rel="noopener noreferrer">Vote for Seth Ericson
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          </a>
+
+          <p class="thanks">Thanks for checking in. Every vote counts, and you can vote for 6 people.</p>
+        </div>
+        <p class="closed-msg" role="status">Voting is closed<small>Results are coming. The site stays down until they are in.</small></p>
+      </div>
     </section>
   </main>
 
   <footer>Ericson Interactive</footer>
 
+<script>
+  // Voting deadline: Tuesday, October 13, 2026, 8:30 a.m. Eastern (EDT, UTC-4)
+  (function () {
+    var DEADLINE = new Date('2026-10-13T08:30:00-04:00').getTime();
+    var box = document.getElementById('vote-box');
+    var el = { d: document.getElementById('cd-d'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m'), s: document.getElementById('cd-s') };
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+      var left = DEADLINE - Date.now();
+      if (left <= 0) { box.classList.add('is-closed'); return true; }
+      var t = Math.floor(left / 1000);
+      el.d.textContent = Math.floor(t / 86400);
+      el.h.textContent = pad(Math.floor(t % 86400 / 3600));
+      el.m.textContent = pad(Math.floor(t % 3600 / 60));
+      el.s.textContent = pad(t % 60);
+      return false;
+    }
+    if (tick()) return;
+    var id = setInterval(function () { if (tick()) clearInterval(id); }, 500);
+  })();
+</script>
 <script>
   (function () {
     var canvas = document.getElementById('particle-canvas');
