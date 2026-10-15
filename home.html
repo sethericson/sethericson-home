@@ -54,6 +54,13 @@
   }
     .sub { margin: 16px 0 0; color: #fda4af; font-size: clamp(.8125rem, 2.4vw, .95rem); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
   .contact { margin: 22px 0 0; font-size: .9375rem; color: rgba(255,232,237,.8); }
+  .btn-form { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding: 10px 20px; border-radius: 12px;
+    font-weight: 700; font-size: .9375rem; color: #fff; text-decoration: none; background: linear-gradient(135deg, #f43f5e, #be123c);
+    border: 1px solid rgba(255,255,255,.18); box-shadow: 0 8px 22px rgba(190,18,60,.32); transition: transform .15s, filter .15s; }
+  .btn-form:hover { filter: brightness(1.08); }
+  .btn-form:active { transform: scale(.97); }
+  .btn-form:focus-visible { outline: 2px solid #fecdd3; outline-offset: 3px; }
+  .btn-form svg { width: 16px; height: 16px; }
   footer { position: relative; z-index: 10; text-align: center; padding: 0 16px 24px; color: rgba(255,205,215,.55); font-size: .8125rem; }
 </style>
 </head>
@@ -67,7 +74,10 @@
       <div class="logo logo-fallback" aria-hidden="true">SE</div>
       <h1 id="title">We&rsquo;re taking a break</h1>
       <p class="sub">TEMPORARY DOWNAGE</p>
-      <p class="contact">Email me for links</p>
+      <p class="contact">Want the links? Fill out a quick form and I&rsquo;ll email them to you.</p>
+      <a class="btn-form" href="https://docs.google.com/forms/d/e/1FAIpQLSeYUuq5ojNRk4J8FVHD_L16pTFVcMFjk06rBNpEV7F428Drbw/viewform" target="_blank" rel="noopener noreferrer">Request the links
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+      </a>
     </section>
   </main>
 
